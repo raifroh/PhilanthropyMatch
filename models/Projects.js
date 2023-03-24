@@ -18,7 +18,7 @@ const ProjectSchema = new mongoose.Schema({
     required: true,
   },
   goal: {
-    type: Numer,
+    type: Number,
     required: true,
   },
   user: {
