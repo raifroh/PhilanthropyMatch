@@ -36,6 +36,7 @@ module.exports = {
         image: result.secure_url,
         cloudinaryId: result.public_id,
         description: req.body.description,
+        goal: req.body.goal,
         user: req.user.id,
       });
       console.log("Project has been added!");
