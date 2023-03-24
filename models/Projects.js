@@ -20,6 +20,12 @@ const ProjectSchema = new mongoose.Schema({
   goal: {
     type: Number,
     required: true,
+    get: function (value) {
+      return (value).toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      });
+    },
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
