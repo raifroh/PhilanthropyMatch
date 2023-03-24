@@ -5,6 +5,7 @@
         <% for(var i=0; i<projects.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
             <a href="/project/<%= projects[i]._id%>">
+              <h2><%= projects[i].title%></h2>
               <img class="img-fluid" src="<%= projects[i].image%>">
             </a>
           </li>
