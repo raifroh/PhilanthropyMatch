@@ -1,28 +1,20 @@
 const mongoose = require("mongoose");
 
-const ProjectSchema = new mongoose.Schema({
-  title: {
+const CommitmentSchema = new mongoose.Schema({
+  comment: {
     type: String,
     required: true,
   },
-  image: {
-    type: String,
-    require: true,
-  },
-  cloudinaryId: {
-    type: String,
-    require: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  goal: {
+  commitment: {
     type: Number,
     required: true,
     get: function (value) {
       return '$' + value.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1').replace(/\.?0+$/, '');
     },
+  },
+  project: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Project",
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -34,4 +26,4 @@ const ProjectSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Project", ProjectSchema);
+module.exports = mongoose.model("Commitment", CommitmentSchema);

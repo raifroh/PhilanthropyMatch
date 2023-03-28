@@ -1,5 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
 const Project = require("../models/Projects");
+const Commitment = require("../models/Commitments")
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -21,7 +22,8 @@ module.exports = {
   getProject: async (req, res) => {
     try {
       const project = await Project.findById(req.params.id);
-      res.render("project.ejs", { project: project, user: req.user });
+      const commitments = await Commitment.find({project: req.params.id}).sort({ createdAt: "desc" }).lean();
+      res.render("project.ejs", { project: project, user: req.user, commitments: commitments });
     } catch (err) {
       console.log(err);
     }

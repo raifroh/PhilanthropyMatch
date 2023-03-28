@@ -20,6 +20,38 @@
       <p>Description: <%= project.description %></p>
       <p>Goal: <%= project.goal %></p>
     </div>
+    <ul>
+      <% for(var i=0; i<commitments.length; i++) {%>
+        <li class="col-6 justify-content-between mt-5">
+            <h2><%= commitments[i].user%></h2>
+            <h2>$<%= commitments[i].commitment%></h2>
+            <h2><%= commitments[i].comment%></h2>
+        </li>
+      <% } %>
+    </ul>
+    <h2>
+      <% if (commitments.length > 1) { %>
+        <% const totalCommitment = commitments.map(c => c.commitment).reduce((x, y) => x + y, 0) %>
+      </br>
+        <p>Progress toward goal:</p>
+        <p>$<%= totalCommitment%> / <%= project.goal%> </p>
+      <% } %>
+      </h2>
+    <div class="mt-5">
+      <h2>Add a commitment</h2>
+      <form action="/commitment/createCommitment/<%=project._id%>" method="POST">
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <input type="text" class="form-control" id="comment" name="comment">
+        </div>
+        <div class="mb-3">
+          <label for="commitment" class="form-label">Commitment Amount</label>
+          <textarea class="form-control" id="commitment" name="commitment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Commit</button>
+      </form>
+    </div>
+</div>
     <div class="col-6 mt-5">
       <a class="btn btn-primary" href="/profile">Return to Profile</a>
       <a class="btn btn-primary" href="/feed">Return to Feed</a>
