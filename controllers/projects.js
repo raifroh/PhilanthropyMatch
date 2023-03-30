@@ -6,9 +6,7 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const projects = await Project.find({ user: req.user.id });
-      const commitments = await Commitment.find({user: req.user.id});
-      console.log(commitments)
-      res.render("profile.ejs", { projects: projects, user: req.user, commitments: commitments });
+      res.render("profile.ejs", { projects: projects, user: req.user});
     } catch (err) {
       console.log(err);
     }

@@ -40,17 +40,6 @@
           </li>
         <% } %>
         </ul>
-        <div class="col-6">
-          <ul class="row list-unstyled">
-          <% for(var i=0; i<commitments.length; i++) {%>
-            <li class="col-6 justify-content-between mt-5">
-              <a href="/commitment/<%= commitments[i]._id%>">
-                <h3><%= commitments[i].project %></h3>
-                <p><%= commitments[i].commitment %></p>
-              </a>
-            </li>
-          <% } %>
-          </ul>
         <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Return to Projects</a>
         </div>  
