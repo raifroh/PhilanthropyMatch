@@ -17,8 +17,15 @@ const CommitmentSchema = new mongoose.Schema({
     ref: "Project",
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    userName: {
+      type: String,
+      required: true
+    }
   },
   createdAt: {
     type: Date,

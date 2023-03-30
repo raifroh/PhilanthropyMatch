@@ -23,7 +23,7 @@
     <ul>
       <% for(var i=0; i<commitments.length; i++) {%>
         <li class="col-6 justify-content-between mt-5">
-            <h2><%= commitments[i].user%></h2>
+            <h2><%= commitments[i].user.userName%></h2>
             <h2>$<%= commitments[i].commitment%></h2>
             <h2><%= commitments[i].comment%></h2>
         </li>
