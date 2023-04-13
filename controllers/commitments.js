@@ -1,4 +1,5 @@
 const Commitment = require("../models/Commitments")
+const Project = require("../models/Projects");
 
 module.exports = {
   createCommitment: async (req, res) => {
@@ -18,4 +19,15 @@ module.exports = {
       console.log(err);
     }
   },
+  getCommitments: async (req, res) => {
+    try {
+      const commitments = await Commitment.find({ 'user.id': req.user._id }).sort({ createdAt: "desc" }).lean();
+      const projects = await Project.find();
+      console.log(req.user.id)
+      console.log('commitments is running')
+      res.render("commitments.ejs", { commitments: commitments, user: req.user, projects: projects });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 };
