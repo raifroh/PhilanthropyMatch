@@ -21,7 +21,7 @@ module.exports = {
   },
   getCommitments: async (req, res) => {
     try {
-      const commitments = await Commitment.find({ 'user.id': req.user._id }).sort({ createdAt: "desc" }).lean();
+      const commitments = await Commitment.find({ 'user.id': req.user._id }).populate("project").sort({ createdAt: "desc" }).lean();
       const projects = await Project.find();
       console.log(req.user.id)
       console.log('commitments is running')

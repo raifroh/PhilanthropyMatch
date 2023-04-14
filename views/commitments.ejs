@@ -4,9 +4,8 @@
       <ul class="row list-unstyled">
         <% for(var i=0; i<commitments.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
-            <h2><a href="/project/<%= projects[i]._id%>"><%= projects[i].title%></a></h2>
+            <h2><a href="/project/<%= commitments[i].project._id %>"><%= commitments[i].project.title %></a></h2>
             <h2>$<%= commitments[i].commitment%></h2>
-            </a>
           </li>
         <% } %>
         </ul>
