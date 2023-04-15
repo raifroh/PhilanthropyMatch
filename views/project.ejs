@@ -20,17 +20,19 @@
       <p>Description: <%= project.description %></p>
       <p>Goal: <%= project.goal %></p>
     </div>
-    <ul>
+    <div class="col-6 mt-5">
       <% for(var i=0; i<commitments.length; i++) {%>
-        <li class="col-6 justify-content-between mt-5">
-            <h2><%= commitments[i].user.userName%></h2>
-            <h2>$<%= commitments[i].commitment%></h2>
-            <h2><%= commitments[i].comment%></h2>
-        </li>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= commitments[i].user.userName%></h5>
+          <h6 class="card-subtitle mb-2 text-muted">$<%= commitments[i].commitment%></h6>
+          <p class="card-text"><%= commitments[i].comment%></p>
+        </div>
+      </div>
       <% } %>
-    </ul>
+    </div>
     <h2>
-      <% if (commitments.length > 1) { %>
+      <% if (commitments.length >= 1) { %>
         <% const totalCommitment = commitments.map(c => c.commitment).reduce((x, y) => x + y, 0) %>
       </br>
         <p>Progress toward goal:</p>
