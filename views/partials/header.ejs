@@ -26,12 +26,37 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="container">
-      <div class="text-center">
-        <h1 class=""><a href="/profile">Philanthropy Match</a></h1>
-        <span>Where Funders and Projects Connect</span>
-        <h3 class=""><a href="/commitments">Commitments Tracker</a></h3>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #0e6efb">
+      <div class="container">
+        <a class="navbar-brand" href="/profile">Philanthropy Match</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile" style="color: white">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/feed" style="color: white">Feed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/commitments" style="color: white">Commitments Tracker</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </header>
+    </nav>
+    <div class="container mt-5">
+      <h1 class="text-center">Where Funders and Projects Connect</h1>
+    </div>
   </body>
 </html>

@@ -20,15 +20,19 @@
       <p>Description: <%= project.description %></p>
       <p>Goal: <%= project.goal %></p>
     </div>
-    <div class="col-6 mt-5">
+    <div class="row">
       <% for(var i=0; i<commitments.length; i++) {%>
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title"><%= commitments[i].user.userName%></h5>
-          <h6 class="card-subtitle mb-2 text-muted">$<%= commitments[i].commitment%></h6>
-          <p class="card-text"><%= commitments[i].comment%></p>
+      <div class="col-12 col-sm-6 col-md-4 mb-3 mt-5">
+          <div class="card text-center">
+            <div class="card header" style="background-color: #0e6efb; color: white;">
+              <h5 class="card-title"><%= commitments[i].user.userName%></h5>
+            </div>
+                <div class="card-body" style="color: black">
+                  <h6 class="card-subtitle mb-2">$<%= commitments[i].commitment%></h6>
+                  <p class="card-text"><%= commitments[i].comment%></p>
+            </div>
+          </div>
         </div>
-      </div>
       <% } %>
     </div>
     <h2>
