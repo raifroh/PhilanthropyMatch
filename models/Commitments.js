@@ -8,9 +8,6 @@ const CommitmentSchema = new mongoose.Schema({
   commitment: {
     type: Number,
     required: true,
-    get: function (value) {
-      return '$' + value.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1').replace(/\.?0+$/, '');
-    },
   },
   project: {
     type: mongoose.Schema.Types.ObjectId,

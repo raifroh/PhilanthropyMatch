@@ -7,11 +7,11 @@ const ProjectSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    require: true,
+    required: true,
   },
   cloudinaryId: {
     type: String,
-    require: true,
+    required: true,
   },
   description: {
     type: String,
@@ -20,9 +20,6 @@ const ProjectSchema = new mongoose.Schema({
   goal: {
     type: Number,
     required: true,
-    get: function (value) {
-      return '$' + value.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1').replace(/\.?0+$/, '');
-    },
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
