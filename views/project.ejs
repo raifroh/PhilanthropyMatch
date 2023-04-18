@@ -18,7 +18,7 @@
     </div>
     <div class="col-3 mt-5">
       <p class="text-muted fs-5 lh-base"><%= project.description %></p>
-      <p class="text-primary fs-5 lh-base">Goal: $<%= project.goal %></p>
+      <p class="text-primary fs-5 lh-base">Goal: $<%= project.goal.toLocaleString() %></p>
     </div>
 <h2 class="mt-5">
       Funds committed to this project:
@@ -31,7 +31,7 @@
               <h5 class="card-title"><%= commitments[i].user.userName%></h5>
             </div>
                 <div class="card-body" style="color: black">
-                  <h6 class="card-subtitle mb-2">$<%= commitments[i].commitment%></h6>
+                  <h6 class="card-subtitle mb-2">$<%= commitments[i].commitment.toLocaleString()%></h6>
                   <p class="card-text"><%= commitments[i].comment%></p>
             </div>
           </div>
