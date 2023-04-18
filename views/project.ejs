@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="col-3 mt-5">
-      <p>Description: <%= project.description %></p>
+      <p><%= project.description %></p>
       <p>Goal: $<%= project.goal %></p>
     </div>
 <h2 class="mt-5">
@@ -38,6 +38,7 @@
         </div>
       <% } %>
     </div>
+    <div class="container">
     <div class="progress mt-3" style="height: 30px;">
       <% if (commitments.length >= 1) { %>
         <% const totalCommitment = commitments.map(c => c.commitment).reduce((x, y) => x + y, 0) %>
@@ -51,6 +52,7 @@
         </div>
       <% } %>
     </div>
+  </div>
     <div class="mt-5">
       <h2>Add a commitment</h2>
       <form action="/commitment/createCommitment/<%=project._id%>" method="POST">
