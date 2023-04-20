@@ -30,9 +30,20 @@ module.exports = {
   },
   createProject: async (req, res) => {
     try {
-      // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
-
+      // Check if the goal input is a number
+      if (isNaN(req.body.goal)) {
+        req.flash("error", "Goal must be a number");
+        return res.redirect("/profile");
+      }
+  
+      let result;
+      try {
+        result = await cloudinary.uploader.upload(req.file.path);
+      } catch (error) {
+        req.flash("error", "Please upload a valid image");
+        return res.redirect("/profile");
+      }
+  
       await Project.create({
         title: req.body.title,
         image: result.secure_url,
@@ -41,7 +52,6 @@ module.exports = {
         goal: req.body.goal,
         user: req.user.id,
       });
-      console.log("Project has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
@@ -55,7 +65,6 @@ module.exports = {
       await cloudinary.uploader.destroy(project.cloudinaryId);
       // Delete project from db
       await Project.remove({ _id: req.params.id });
-      console.log("Deleted Project");
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");

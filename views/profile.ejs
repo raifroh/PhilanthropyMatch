@@ -9,6 +9,17 @@
           </div>
           <div class="mt-5">
             <h2>Add a Project</h2>
+            <% if (messages.error) { %>
+              <div class="alert alert-danger" role="alert">
+                <%= messages.error %>
+              </div>
+            <% } %>
+
+            <% if (messages.success) { %>
+              <div class="alert alert-success" role="alert">
+                <%= messages.success %>
+              </div>
+            <% } %>
             <form action="/project/createProject" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
